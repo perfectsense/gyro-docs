@@ -1,0 +1,8 @@
+sudo: required
+dist: trusty
+
+branches:
+  except:
+    - /^v[-.0-9]+$/
+
+script: ./deploy.sh . _build/html
