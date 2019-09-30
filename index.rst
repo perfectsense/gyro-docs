@@ -37,12 +37,20 @@ shared across an organization allow teams outside the operations team to build a
 
 .. toctree::
    :maxdepth: 1
-   :caption: Guides
-   :name: guides
+   :caption: Basics
+   :name: basics
 
    guides/installing/index
    guides/language/index
    guides/tutorial/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Advanced
+   :name: advanced
+
+   guides/virtual-resources/index
+   guides/workflows/index
 
 .. toctree::
    :caption: Cloud Providers

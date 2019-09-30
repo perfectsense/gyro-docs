@@ -3,6 +3,8 @@ Control Structures
 
 Gyro provides control structures via directives.
 
+.. _if-expression:
+
 @if expression
 --------------
 
@@ -41,6 +43,8 @@ define logic to execute if no other conditions are met.
             subnet: $subnet
         end
     @end
+
+.. _for-loop:
 
 @for loop
 ---------
