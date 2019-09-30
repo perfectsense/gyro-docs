@@ -1,5 +1,5 @@
-Updating Infrastructure
------------------------
+Update
+------
 
 This section will explain how Gyro handles changes to the configuration of the infrastructure.
 
@@ -13,7 +13,7 @@ Use Case 1: Create a custom route table associated to your VPC which will contro
 
 Use Case 2: Create an internet gateway attached to your VPC and ensure that your subnet's route table has an entry for the internet bound traffic to the internet gateway.
 
-.. image:: ../images/vpc-route.png
+.. image:: images/vpc-route.png
 
 Add the below given configs in the vpc.gyro file inorder to update an existing setup environment.
 
@@ -34,7 +34,6 @@ Add the below given configs in the vpc.gyro file inorder to update an existing s
 	    gateway-id: $(aws::internet-gateway ig-example | internet-gateway-id)
 	    cidr-block: "10.0.0.0/16"
 	end
-
 
 Internet Gateway
 ++++++++++++++++

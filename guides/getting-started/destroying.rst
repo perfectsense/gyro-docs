@@ -1,5 +1,5 @@
-Destroying Infrastructure
--------------------------
+Destroy
+-------
 
 After creating temporary resources for testing or performing other activities, it may be necessary to destroy infrastructure.
 Gyro will never destroy infrastructure without prompting.

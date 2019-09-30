@@ -1,9 +1,9 @@
-Creating Infrastructure
------------------------
+Create
+------
 
 The diagram below depicts the reference architecture of a virtual private network with associated resources.
 
-.. image:: ../images/vpc-overview.png
+.. image:: images/vpc-overview.png
 
 This document will focus on the implementation of this architecture in AWS.
 
@@ -17,11 +17,15 @@ By the end of this guide you should have a working local Gyro environment and de
 Configuration
 +++++++++++++
 
-The first step to creating infrastructure with gyro is to define the init config file which has details about your project such as plugins, credentials, global variables and backend file systems.
+The first step to creating infrastructure with gyro is to define the init config file which has
+details about your project such as plugins, credentials, global variables and backend file systems.
 
-Inside your project folder, start by creating a `gyro` directory and run the ``gyro init <plugins>`` to create the init file with the required plugins. You can also run ``gyro help init`` for detailed usage of this command.
+Inside your project folder, start by creating a `gyro` directory and run the ``gyro init <plugins>``
+to create the init file with the required plugins. You can also run ``gyro help init`` for detailed
+usage of this command.
 
-You also need to add the project specific details in the  ``init.gyro`` configuration file such as credentials which will allow gyro to create resources on cloud.
+You also need to add the project specific details in the  ``init.gyro`` configuration file such as
+credentials which will allow gyro to create resources on cloud.
 
 .. code:: shell
 
@@ -72,12 +76,15 @@ availability-zone : The name of the availablity zone to create this subnet.
 
 The above given configuration would be creating a VPC resource and a subnet associated to that network as depicted in the diagram below :
 
-.. image:: ../images/vpc-subnet-overview.png
+.. image:: images/vpc-subnet-overview.png
 
 Launching Infrastructure
-------------------------
+++++++++++++++++++++++++
 
-Now that the infrastructure configuration is defined, it is ready to launch. Run gyro up ``vpc.gyro``, you can also pass ``--verbose`` flag to get additional details of the resource. When ``y`` is given at the prompt, resource state file gets generated under here ``.gyro/state/vpc.gyro``.
+Now that the infrastructure configuration is defined, it is ready to launch. Run gyro up
+``vpc.gyro``, you can also pass ``--verbose`` flag to get additional details of the resource. When
+``y`` is given at the prompt, resource state file gets generated under here
+``.gyro/state/vpc.gyro``.
 
 You should see output similar to the following :
 
