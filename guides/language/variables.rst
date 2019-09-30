@@ -6,15 +6,25 @@ Variables in Gyro defined using the ``key: value`` syntax.
 Scoping
 -------
 
-There are three levels of scoping: resource, file, and global.
+There are three levels of scoping: **resource**, **file**, and **global**.
 
-To define a variable that is scoped to all files in a Gyro project, define the variable ``.gyro/init.gyro``. Variables
-defined in Gyro files will override variables defined in ``.gyro/init.gyro``.
+*Resource* scoped variables are defined inside of a resource definition. In the example below
+``image-id`` and ``instance-type`` are resource scoped variables. These variables can only be
+referenced from within the resource using the implicit ``$SELF`` variable.
 
-Variables are referenced using the ``$name`` or ``$(name)`` syntax. Use ``$(name)`` to surround a variable name
-when used inside a string.
+.. code::
 
-**Example:**
+    aws::instance webserver
+        image-id: "ami-0cd3dfa4e37921605"
+        instance-type: $server-size
+
+        tags: {
+            Name: "webserver \($SELF.instance-type)"
+        }
+    end
+
+*File* scoped variables are defined within a Gyro configuration file but not within a resource
+definition. In the example below ``project`` and ``server-size`` are file scoped variables.
 
 .. code::
 
@@ -26,18 +36,16 @@ when used inside a string.
         instance-type: $server-size
 
         tags: {
-            Name: "$(gyro)-$(server-size)"
+            Name: "webserver \($SELF.instance-type)"
         }
     end
 
-Keys must be a valid identifer, or string literal. Identifiers can be made up of letters, digits, ``_``, or ``-``. Spaces
-can be included in keys by quoting the key using single quotes (``'``).
+*Global* scoped variables are defined in ``.gyro/init.gyro`` at the root of the Gyro project.
 
-Values can by one of the following types:
+Scalar Types
+------------
 
-**Scalar Types**
-
-Gyro has the following scalar types: string, numbers, and booleans.
+Gyro has the following scalar types: **string**, **number**, and **boolean**.
 
 String literals are defined as is zero or more characters enclosed within single quotes (``'my value'``).
 
@@ -48,10 +56,45 @@ Numbers can be integers or floats (``10``, ``10.5``, ``-10``).
 
 Booleans are defined as ``true`` or ``false``.
 
-**Compound Types**
+References
+**********
 
-Gyro has two compound types: maps, and lists.
+Variables are referenced using the ``$name`` or ``$(name)`` syntax. Use ``$(name)`` to surround a variable name
+when used inside a string.
+
+Keys must be a valid identifer, or string literal. Identifiers can be made up of letters, digits, ``_``, or ``-``. Spaces
+can be included in keys by quoting the key using single quotes (``'``).
+
+Compound Types
+--------------
+
+Gyro has two compound types: **map**, and **list**.
 
 Maps are zero or more comma-separated key/value pairs inside curly brackets (``{ key: 'value' }``).
 
 Lists are zero or more comma-separated values inside square brackets (``['item1', 'item2']``).
+
+References
+**********
+
+Maps can be referenced using dot notation with the key name:
+
+.. code::
+
+    tags: {
+        Name: "Name"
+        gyro-key: "value"
+    }
+
+    Name: $(tags).Name
+    Value: $(tags).gyro-key
+
+Lists can be referenced using index notation with the position of the list element you'd like to retrieve:
+
+.. code::
+
+    values: ["value1", "value2", "value3"]
+
+    Value1: $(values).0
+    Value2: $(values).1
+    Value3: $(values).2
