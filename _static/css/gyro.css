@@ -1,0 +1,37 @@
+
+.wy-nav-side {
+    background-color: #393d3f;
+}
+
+.wy-side-nav-search,
+.wy-nav-top {
+    background-color: #26A69A
+}
+
+.wy-side-nav-search > a img.logo {
+    width: 200px;
+}
+
+.wy-side-nav-search input[type="text"] {
+    border-color: #999;
+}
+
+.wy-menu-vertical a,
+.wy-menu-vertical li span.toctree-expand {
+    color: #c2d3cd;
+    font-size: 90%;
+}
+
+.wy-menu-vertical p.caption {
+    color: #78a1bb;
+    font-size: 90%;
+}
+
+.rst-content .highlighted {
+    background: #26A69A;
+    color: #fff;
+}
+
+h1, h2, h3, h4, h5 {
+    color: #78a1bb;
+}

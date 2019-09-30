@@ -25,9 +25,9 @@ source_suffix = ['.rst']
 master_doc = 'index'
 
 project = u'Gyro'
-copyright = u'2017, Perfect Sense'
+copyright = u'2019, Perfect Sense, Inc.'
 author = u'Perfect Sense'
-release = u'1.0'
+release = u'0.99.0'
 language = None
 
 exclude_patterns = [
@@ -46,15 +46,28 @@ exclude_patterns = [
 pygments_style = 'sphinx'
 
 html_theme = 'sphinx_rtd_theme'
-#html_theme = 'gyro-sphinx-theme'
 html_theme_options = {
-    'collapse_navigation': False,
-    'display_version': False,
+    'collapse_navigation': True,
+    #'display_version': False,
     'navigation_depth': 3,
+    'logo_only': True
 }
+
+#html_context = {
+#    "display_github": True,
+#    "github_user": "perfectsense", # Username
+#    "github_repo": "gyro", # Repo name
+#    "github_version": "master", # Version
+#    "conf_py_path": "/docs/", # Path in the checkout to the docs root
+#}
 
 html_theme_path = [bsp_docs_sphinx_theme.get_html_theme_path()]
 html_static_path = ['_static']
+
+html_logo = 'images/gyro-small-white.png'
+html_css_files = [
+    'css/gyro.css',
+]
 
 rst_prolog = """
 .. include:: /substitutions.tsr
