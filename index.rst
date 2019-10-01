@@ -58,6 +58,7 @@ shared across an organization allow teams outside the operations team to build a
 
    providers/aws/index
    providers/azure/index
+   providers/pingdom/index
 
 .. toctree::
    :maxdepth: 1
