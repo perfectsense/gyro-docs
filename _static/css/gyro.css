@@ -35,3 +35,8 @@
 h1, h2 {
     color: #78a1bb;
 }
+
+.query-resource-link {
+    float: right;
+    margin-top: 10px;
+}
