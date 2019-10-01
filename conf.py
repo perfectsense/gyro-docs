@@ -64,6 +64,7 @@ html_theme_options = {
 html_theme_path = [bsp_docs_sphinx_theme.get_html_theme_path()]
 html_static_path = ['_static']
 
+html_favicon = 'images/gyro-icon.png'
 html_logo = 'images/gyro-small-white.png'
 html_css_files = [
     'css/gyro.css',
