@@ -1,8 +1,11 @@
 #!/bin/bash
 
+HTML_BUILD_PATH=_build/html/
+SOURCE_DOCS_DIR=_sources
 PROVIDER_DOCS_DIR=provider-docs
 PROVIDERS_DIR=providers
 GENERATED_DOC_PATH=build/docs/javadoc
+
 generate() {
     echo "Generating documentation for $1"
 
@@ -48,5 +51,4 @@ done
 
 cd ..
 
-rm -rf $PROVIDER_DOCS_DIR
-
+rm -rf $PROVIDER_DOCS_DIR $HTML_BUILD_PATH$PROVIDER_DOCS_DIR $HTML_BUILD_PATH$SOURCE_DOCS_DIR
