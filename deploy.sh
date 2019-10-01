@@ -38,6 +38,7 @@ BUILD_DIRECTORY=`pwd`/$1
 cd $BUILD_DIRECTORY
 sh ./generate-provider-docs.sh
 make html
+rm -rf "_build/html/_sources" #remove unnecessary files
 
 # If this Travis job is not a pull request, 
 # assume it is a merge and deploy to S3
