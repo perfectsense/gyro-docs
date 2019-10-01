@@ -6,7 +6,7 @@
 #
 # Uncomment the following two lines for testing:
 #TRAVIS_PULL_REQUEST="false"
-AWS_BUCKET="gyro.dev"
+#DEPLOY_BUCKET="gyro.dev"
 #
 # Scenario 1: deploying a previous release. Uncomment the following:
 # TRAVIS_BRANCH=release/3.2
@@ -49,20 +49,20 @@ if [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
 
     sudo pip install awscli
 
-    echo "Deploying to bucket: $AWS_BUCKET"
+    echo "Deploying to bucket: $DEPLOY_BUCKET"
 
     if [[ "$TRAVIS_BRANCH" == "release/"* ]]; then
 
         version=$(awk -F '/' '{print $2}' <<< $TRAVIS_BRANCH)
         echo "Synching for release $version..."
-        aws s3 sync $2 s3://$AWS_BUCKET/v$version --acl $AWS_ACL --cache-control max-age=3600 --delete
+        aws s3 sync $2 s3://$DEPLOY_BUCKET/v$version --acl $AWS_ACL --cache-control max-age=3600 --delete
         echo "Done synching release $version"
     fi
 
     if [[ "$TRAVIS_BRANCH" == "master" ]]; then
     
       echo "Synching master..."
-      aws s3 sync $2 s3://$AWS_BUCKET/ --acl $AWS_ACL --include "*" --exclude "v?.?/*"  --delete --profile psd-gyro
+      aws s3 sync $2 s3://$DEPLOY_BUCKET/ --acl $AWS_ACL --include "*" --exclude "v?.?/*"  --delete --profile psd-gyro
       echo "Done syching master"
 
     fi
