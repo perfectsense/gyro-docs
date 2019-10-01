@@ -15,7 +15,7 @@ generate() {
         rm -rf $PROVIDER_DIR
     fi
 
-    git clone -b bug/fix-documentation $1
+    git clone $1
     cd $PROVIDER_DIR
 
     touch settings.gradle
