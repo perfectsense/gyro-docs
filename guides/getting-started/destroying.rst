@@ -9,6 +9,7 @@ how Gyro handles the deletion of resources.
 
 .. code::
 
+    $ rm instance.gyro
     $ gyro up
     ↓ Loading plugin: gyro:gyro-aws-provider:0.99.0-SNAPSHOT
     ⟳ Refreshed resources: 1
