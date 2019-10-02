@@ -9,10 +9,10 @@ infrastructure-as-code possible.
 Using Gyro allows you to model your infrastructure using the Gyro language and then create, update, and
 maintain that infrastructure using the ``gyro`` command-line tool.
 
-The Gyro language is a DSL (domain specific language) for defining cloud infrastructure in a human-readable format. It
-was built with readability and organizational flexbility in mind. The language provides the ability to concisely define
-cloud infrastructure resources along with language constructs such a ``for`` loops, ``if`` conditionals, and
-``virtual-resource`` definitions for packaging resources into reusable components.
+The Gyro language is designed specifically for defining cloud infrastructure. It was built with
+readability and organizational flexbility in mind. The language provides the ability to concisely
+define cloud infrastructure resources along with language constructs such a ``@for`` loops, ``@if``
+conditionals, and ``@virtual`` definitions for packaging resources into reusable components.
 
 Why Use Gyro?
 +++++++++++++
@@ -24,7 +24,7 @@ are several areas Gyro can help:
 
 Gyro can help teams develop processes for infrastructure changes. Traditionally cloud infrastructure changes
 were accomplished using cloud vendor web interfaces which make it difficult verify and track changes. Using
-Gyro's DSL to define infrastructure as code teams can manage infrastructure changes using more formal processes
+Gyro to define infrastructure-as-code, teams can manage infrastructure changes using more formal processes
 of review. Infrastructure changes can be reviewed to ensure only the requested changes are being made. Changes can
 be tracked using any version control sytem.
 
