@@ -40,6 +40,7 @@ shared across an organization allow teams outside the operations team to build a
    :caption: Basics
    :name: basics
 
+   guides/getting-started/installing
    guides/getting-started/index
    guides/language/index
 
