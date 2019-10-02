@@ -45,14 +45,6 @@ shared across an organization allow teams outside the operations team to build a
    guides/language/index
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Advanced
-   :name: advanced
-
-   guides/virtual-resources/index
-   guides/workflows/index
-
-.. toctree::
    :caption: Cloud Providers
    :maxdepth: 1
    :name: providers
@@ -63,8 +55,18 @@ shared across an organization allow teams outside the operations team to build a
 
 .. toctree::
    :maxdepth: 1
+   :caption: Advanced
+   :name: advanced
+
+   guides/virtual-resources/index
+   guides/workflows/index
+
+.. toctree::
+   :maxdepth: 1
    :caption: Extending Gyro
    :name: extending
 
    extending/directive/index
    extending/provider/index
+   extending/commands/index
+   extending/resolver/index
