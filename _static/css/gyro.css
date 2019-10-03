@@ -1,4 +1,8 @@
 
+var {
+    font-style: normal !important;
+}
+
 .wy-nav-side {
     background-color: #393d3f;
 }

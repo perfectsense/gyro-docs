@@ -94,6 +94,59 @@ are output to JSON format.
       "id" : "ami-091b8328283d287be"
     }
 
+.. _extends:
+
+@extends
+--------
+
+This directive copies attributes from an existing resource into a new resource definition. It is intended to be used
+when you want to create a new resource that is similar to an existing resource definition.
+
+**Options**
+
+-exclude <attribute>
+    Exclude provided attribute from the copy. Use this to prevent ``@extends`` from copying attributes
+    to the new resource.
+
+-merge true|false
+    When true, merge maps and lists defined in the source definition with those defined in the new definition. This
+    defaults to false.
+
+**Example** ::
+
+    aws::instance webserver-1
+        ami: "ami-05ecb1463f8f1ee4b"
+        instance-type: "t3.nano"
+        security-groups: $(aws::security-groups webserver-*)
+
+        tags: {
+            Name: "webserver-1"
+            Project: "gyro"
+        }
+    end
+
+    aws::instance webserver-2
+        @extends: $(aws::instance webserver-1) -exclude private-ip-address -merge true
+
+        tags: {
+            Name: "webserver-2"
+        }
+    end
+
+This equivalent to defining ``webserver-2`` as::
+
+    aws::instance webserver-2
+        ami: "ami-05ecb1463f8f1ee4b"
+        instance-type: "t3.nano"
+        security-groups: $(aws::security-groups webserver-*)
+
+        tags: {
+            Name: "webserver-2"
+            Project: "gyro"
+        }
+    end
+
+
 @virtual
 --------
 
