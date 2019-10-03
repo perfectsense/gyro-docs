@@ -21,7 +21,7 @@ span.attribute {
     font-weight: normal;
 }
 
-.rst-content dl.subresource > dt {
+.rst-content dl.subresource > dt:first-child {
     border-left: 4px solid #393d3f;
     border-right: 2px;
     border-radius: 0px 4px 4px 0px;
