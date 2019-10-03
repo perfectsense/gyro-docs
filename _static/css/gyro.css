@@ -3,6 +3,30 @@ var {
     font-style: normal !important;
 }
 
+span.attribute {
+    font-weight: bold;
+    background: #78a1bb;
+    border-radius: 3px;
+    padding: 4px;
+    color: white;
+}
+
+.rst-content dl dt {
+    background: #78a1bb;
+    color: #fff;
+    border-radius: 4px;
+    padding: 0px 5px 3px 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    font-weight: normal;
+}
+
+.rst-content dl.subresource > dt {
+    border-left: 4px solid #393d3f;
+    border-right: 2px;
+    border-radius: 0px 4px 4px 0px;
+}
+
 .wy-nav-side {
     background-color: #393d3f;
 }
