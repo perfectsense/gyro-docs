@@ -19,7 +19,7 @@ generate() {
     cd $PROVIDER_DIR
 
     touch settings.gradle
-    ./gradlew referenceDocs
+    ./gradlew clean && ./gradlew referenceDocs --no-build-cache
 
     PROVIDER_DIR_PATH=$(pwd)
 
