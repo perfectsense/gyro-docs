@@ -3,28 +3,91 @@ var {
     font-style: normal !important;
 }
 
-span.attribute {
-    font-weight: bold;
-    background: #78a1bb;
+.rst-content code.literal {
+    color: #000;
+}
+
+code, .rst-content code {
+    background: #e1e4e5;
     border-radius: 3px;
-    padding: 4px;
-    color: white;
+}
+
+.wy-body-for-nav {
+    background: #393d3f;
+}
+
+.wy-nav-content {
+    max-width: 1000px;
 }
 
 .rst-content dl dt {
-    background: #78a1bb;
-    color: #fff;
     border-radius: 4px;
-    padding: 0px 5px 3px 5px;
-    margin-bottom: 5px;
+    /*padding: 0px 5px 3px 5px;*/
     display: inline-block;
-    font-weight: normal;
+}
+.rst-content dl.subresource > dt:first-child {
+    border-bottom: 2px solid #78a1bb;
+    border-radius: 0;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
 }
 
-.rst-content dl.subresource > dt:first-child {
-    border-left: 4px solid #393d3f;
-    border-right: 2px;
-    border-radius: 0px 4px 4px 0px;
+.rst-content dl.subresource > dt:first-child:after {
+    content: "subresource";
+    margin-left: 10px;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 75%;
+    background: #78a1bb;
+    color: #fff;
+    padding: 1px 3px 2px 4px;
+    border-radius: 2px;
+}
+
+span.subresource {
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 75%;
+    background: #78a1bb;
+    color: #fff;
+    padding: 1px 3px 2px 4px;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+span.attribute {
+    display: block;
+}
+
+td p {
+    font-size: 100%;
+}
+
+.wy-table-responsive table tr td:first-child,
+.wy-table-responsive table tr th:first-child {
+    text-align: right;
+}
+
+.wy-table thead th, .rst-content table.docutils thead th, .rst-content table.field-list thead th {
+    font-weight: bold;
+    border-bottom: solid 1px #e1e4e5;
+    border-left: solid 1px #e1e4e5;
+}
+
+.rst-content table.docutils:not(.field-list) tr:nth-child(2n-1) td {
+    background-color: #fcfcfc;
+}
+
+.rst-content table.docutils td {
+    vertical-align: top;
+}
+
+.wy-table-bordered-all, .rst-content table.docutils {
+    border: 1px solid #fcfcfc;
+}
+
+.wy-table-responsive table td, .wy-table-responsive table th {
+    white-space: normal;
 }
 
 .wy-nav-side {
@@ -43,6 +106,7 @@ span.attribute {
 .wy-side-nav-search input[type="text"] {
     border-color: #999;
 }
+
 
 .wy-menu-vertical a,
 .wy-menu-vertical li span.toctree-expand {
