@@ -42,6 +42,7 @@ shared across an organization allow teams outside the operations team to build a
 
    guides/getting-started/installing
    guides/getting-started/index
+   guides/contribute/index
    guides/language/index
 
 .. toctree::
