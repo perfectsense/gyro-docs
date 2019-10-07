@@ -1,11 +1,25 @@
 Implementing a Resolver
 -----------------------
 
-A resolver needs to extend ``ReferenceResolver`` part of **gyro.core.reference** and there by implement the method **resolve**.
+To create your own a resolver subclass `gyro.core.reference.ReferenceResolver <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/reference/ReferenceResolver.java>`_ and implement the method **resolve**.
 
-The class should also be annotated with the ``@Type(string)`` annotation. The name provided by this annotation is the name you use when using this resolver. This lets Gyro lookup the resolver implementation. 
+Annotated this class with the ``@Type(string)`` annotation to give this resolver a name. The name provided by this
+annotation the name that will be exposed to the Gyro language, (i.e. ``$(<typename>)``). Note that if the Java
+package that contains your resolver provides a ``package-info.java`` file annotated with ``@Namespace``, your resolver
+will be available as ``$(<namespace>::<type>)``.
 
-The following example shows the implementation of a simple resolver called the ``string-concat`` that concatenates two or more stings.
+Your resolver's ``resolve`` method will be called whenever Gyro encounters a reference with the name of your resolver
+in it. Your resolver will be passed in a `Scope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Scope.java>`_ object, this gives you access to Gyro's internal scope (map of
+values), and a ``List<Object>`` of arguments that have already been resolved.
+
+Your resolver should return a value that can be used by the Gyro configuration language. Typically this means
+returning a basic type (integer, string, list, or map) or a Resource.
+
+Example
++++++++
+
+The following example shows the implementation of a simple resolver called the ``string-concat``
+that concatenates two or more stings.
 
 .. code-block:: java
 
@@ -19,5 +33,5 @@ The following example shows the implementation of a simple resolver called the `
 	    	}
 
 	    	return String.join(" ", arguments);
-	    }
-	}
+        }
+    }
