@@ -48,7 +48,7 @@ AWS_ACL="${AWS_ACL:-public-read}"
 
 if [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
 
-    sudo pip install awscli
+    sudo pip install awscli --ignore-installed
 
     echo "Deploying to bucket: $DEPLOY_BUCKET"
 
