@@ -3,8 +3,8 @@
 Gyro
 ====
 
-Gyro is a command-line tool for automating creating, updating, and maintaining cloud infrastructure. Gyro makes
-infrastructure-as-code possible.
+Gyro is an open source command-line tool for automating creating, updating, and maintaining cloud infrastructure. Gyro makes
+infrastructure-as-code possible. Gyro is licensed under the `Apache 2.0 license <https://github.com/perfectsense/gyro/blob/master/LICENSE>`_.
 
 Using Gyro allows you to model your infrastructure using the Gyro language and then create, update, and
 maintain that infrastructure using the ``gyro`` command-line tool.
