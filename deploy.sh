@@ -52,14 +52,6 @@ if [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
 
     echo "Deploying to bucket: $DEPLOY_BUCKET"
 
-    if [[ "$TRAVIS_BRANCH" == "release/"* ]]; then
-
-        version=$(awk -F '/' '{print $2}' <<< $TRAVIS_BRANCH)
-        echo "Synching for release $version..."
-        aws s3 sync $2 s3://$DEPLOY_BUCKET/v$version --acl $AWS_ACL --cache-control max-age=3600 --delete
-        echo "Done synching release $version"
-    fi
-
     if [[ "$TRAVIS_BRANCH" == "master" ]]; then
     
       echo "Synching master..."
