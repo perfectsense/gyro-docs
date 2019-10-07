@@ -9,9 +9,9 @@ Official distributions are:
 ================== =================
 OS                  Archive
 ================== =================
-**macOS**          `gyro-cli-osx-0.15-20190827.211110-49.zip <https://artifactory.psdops.com/gyro-snapshots/gyro/gyro-cli-osx/0.15-SNAPSHOT/gyro-cli-osx-0.15-20190827.211110-49.zip>`_
-**Linux**          `gyro-cli-linux-0.15-20190827.211008-49.zip <https://artifactory.psdops.com/gyro-snapshots/gyro/gyro-cli-linux/0.15-SNAPSHOT/gyro-cli-linux-0.15-20190827.211008-49.zip>`_
-**Windows**        `gyro-cli-windows-0.99.0-20191002.121244-5.zip <https://artifactory.psdops.com/gyro-snapshots/gyro/gyro-cli-windows/0.99.0-SNAPSHOT/gyro-cli-windows-0.99.0-20191002.121244-5.zip>`_
+**macOS**          `gyro-cli-osx-0.99.0.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-osx/0.99.0/gyro-cli-osx-0.99.0.zip>`_
+**Linux**          `gyro-cli-linux-0.99.0.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-linux/0.99.0/gyro-cli-linux-0.99.0.zip>`_
+**Windows**        `gyro-cli-windows-0.99.0.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-windows/0.99.0/gyro-cli-windows-0.99.0.zip>`_
 ================== =================
 
 The easiest installation method is to download the distribution and extract it.
@@ -25,9 +25,9 @@ For example:
 
 .. code:: shell
 
-    $ unzip -d /usr/local/bin gyro-cli-osx-0.15-20190827.211110-49.zip
+    $ unzip -d /usr/local/bin gyro-cli-linux-0.99.0.zip
 
-     Archive:  gyro-cli-osx-0.15-20190827.211110-49.zip
+     Archive:  gyro-cli-linux-0.99.0.zip
       creating: /usr/local/bin/gyro-rt/
       creating: /usr/local/bin/gyro-rt/bin/
       inflating: /usr/local/bin/gyro-rt/bin/java
