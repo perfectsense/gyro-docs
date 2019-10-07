@@ -22,6 +22,14 @@ Code
 If you like to contribute a new feature or bug fix please fork the repository, make your fix, and open
 a Pull Request on Github.
 
+Github Repositories:
+
+- **Gyro Core** - `gyro <https://github.com/perfectsense/gyro>`_
+- **AWS Provider** - `gyro-aws-provider <https://github.com/perfectsense/gyro-aws-provider>`_
+- **Azure Provider** - `gyro-azure-provider <https://github.com/perfectsense/gyro-azure-provider>`_
+- **Pingdom Provider** - `gyro-pingdom-provider <https://github.com/perfectsense/gyro-pingdom-provider>`_
+- **SSH Plugin** - `gyro-ssh-plugin <https://github.com/perfectsense/gyro-ssh-plugin>`_
+
 Chat
 ----
 
