@@ -8,7 +8,7 @@ Directive            Function
 ==================   ============
 ``@print``		 	 Print something in the console.
 ``@repository``  	 Get access to external repositories. 
-``@wait``		 	 Lets you wait between two Gyro action conditionally.
+``@wait``		 	 Lets you wait between two Gyro actions conditionally.
 ``@extends``	 	 Ability to copy resource configurations with optional exception fields.
 ``@plugin``		 	 Attach a Gyro plugin to the language. Each cloud provider (``aws`` or ``azure`` or ``pingdom``) is a plugin.
 ==================   ============

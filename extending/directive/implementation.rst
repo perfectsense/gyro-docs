@@ -10,7 +10,7 @@ will be available as ``@<namespace>::<type>:``.
 
 Your directive's ``process`` method will be called whenever Gyro encounters a reference with the name of your directive
 in it. Your directive will be passed in a `DiffableScope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/DiffableScope.java>`_ object, this gives you access to Gyro's internal scope (map of
-values), and a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_ object, this gives you a direct access to Gyro's AST for you to manupulate it as you please.
+values), and a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_ object, this gives you direct access to Gyro's AST for you to manipulate it as you please.
 
 Example
 +++++++
