@@ -10,6 +10,7 @@ This guide gives you an overview of the Gyro configuration language.
     variables
     directives
     control-structures
-    built-ins
+    built-in-directives
+    built-in-resolvers
 
 
