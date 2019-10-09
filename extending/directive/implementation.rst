@@ -1,2 +1,0 @@
-Implementing a Directive
-------------------------
