@@ -60,7 +60,7 @@ if [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
         echo "Done synching release $version"
     fi
 
-    if [[ "$TRAVIS_BRANCH" == "master" ]]; then
+    if [[ "$TRAVIS_BRANCH" == "bug/fix-doc-deployment-s3" ]]; then
     
       echo "Synching master..."
       aws s3 sync $2 s3://$DEPLOY_BUCKET/ --acl $AWS_ACL --include "*" --exclude "v?.?/*"  --delete
