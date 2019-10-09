@@ -63,7 +63,7 @@ if [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
     if [[ "$TRAVIS_BRANCH" == "master" ]]; then
     
       echo "Synching master..."
-      aws s3 sync $2 s3://$DEPLOY_BUCKET/ --acl $AWS_ACL --include "*" --exclude "v?.?/*"  --delete --profile psd-gyro
+      aws s3 sync $2 s3://$DEPLOY_BUCKET/ --acl $AWS_ACL --include "*" --exclude "v?.?/*"  --delete
       echo "Done syching master"
 
     fi
