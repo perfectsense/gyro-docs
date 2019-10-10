@@ -32,6 +32,7 @@ Ensure you have credentials for AWS defined in ``$HOME/.aws/credentials``. If yo
 CLI installed you can run the following to configure your credentials:
 
 .. code:: shell
+
     $ aws configure --profile gyro
     AWS Access Key ID [None]: AEVOO9PAHC4THIE6UB3G
     AWS Secret Access Key [None]: UvkNum4VB025EHVtBKQxzYcuOLSYNAF6e300yfVf
@@ -51,7 +52,7 @@ Verify the credentials:
 Now that we have the credentials file configured we need to tell Gyro which credentials we want to use. For this
 we use an ``@credentials`` directive in ``.gyro/init.gyro``. Add the following to ``.gyro/init.gyro``:
 
-.. code::
+.. code:: shell
 
     @credentials aws::credentials
         profile-name: "gyro"
