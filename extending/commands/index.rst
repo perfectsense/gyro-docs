@@ -1,7 +1,9 @@
 Adding a Command
 ================
 
-Given Gyro is CLI based cloud automation tool, commands are how a user interacts with Gyro. Commands expose how a user interacts with the Gyro framework and the cloud resources that it manages. Gyro provides a couple of commands out of the box
+Gyro is a command-line cloud automation tool. Gyro exposes several commands (i.e. ``gyro up``) to allow the user to interact with Gyro. New commands can be added to extend the functionality of Gyro. For example, the `gyro-ssh-plugin <https://github.com/perfectsense/gyro-ssh-plugin>`_ adds the ``ssh`` command for logging into hosts defined in your configuration.
+
+The following commands are provided out of the box:
 
 ==================   ============
 Directive            Function
