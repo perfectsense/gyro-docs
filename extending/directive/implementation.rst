@@ -38,9 +38,9 @@ Example
 
 The following is how this can be used:
 
-. code-block:: java
+.. code-block:: java
 	
-	@production
+	@production: true
 
 	aws::instance frontend
 		name: webserver

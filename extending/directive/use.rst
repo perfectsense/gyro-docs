@@ -3,6 +3,15 @@ Using a Directive
 
 A directive uses the ``@<directive-name>: <arg1> <arg2>`` notation. The Directive can take as many arguments as defined by the implementation.
 
+Directives can also be multiline which accepts a map of directive settings along with the arguments.
+
+.. code-block:: shell
+
+	@<directive-name> <arg1> <arg2>
+		<directive-setting-param-1>: <value>
+		<directive-setting-param-2>: <value>
+	@end
+
 For example:
 
 .. code-block:: java
