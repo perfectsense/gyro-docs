@@ -25,6 +25,8 @@ Scope 		   																													Usage
 
 You are free to extend `Scope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Scope.java>`_ and create your own sub type to use in a custom directive, whose behavior and restrictions would be based on how you implement your version of the scope.
 
+Optionaly if you need arguments that are more complex in nature or want them to be reusable by other extensions (i.e persist beyond just when this directive is called) you could define your own `settings <../../guides/language/directives.html#settings>`_.
+
 Arguments
 +++++++++
 
