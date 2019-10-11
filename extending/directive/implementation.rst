@@ -1,7 +1,7 @@
 Implementing a Directive
 ========================
 
-To create your own a directive subclass `gyro.core.directive.DirectiveProcessor <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java>`_ and implement the method **process**.
+To create your own directive subclass `gyro.core.directive.DirectiveProcessor <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java>`_ and implement the method **process**.
 
 Annotate this class with the ``@Type(string)`` annotation to give this directive a name. The name provided by this
 annotation is the name that will be exposed to the Gyro language, (i.e. ``@<typename>:``). Note that if the Java
