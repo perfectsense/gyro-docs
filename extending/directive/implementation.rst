@@ -25,6 +25,29 @@ Scope 		   																													Usage
 
 You are free to extend `Scope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Scope.java>`_ and create your own sub type to use in a custom directive, whose behavior and restrictions would be based on how you implement your version of the scope.
 
+Arguments
++++++++++
+
+`DirectiveProcessor <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java>`_ provides a number of helper methods to process arguments and options. We discuss some of them here.
+
+- `validateArguments <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java#L71>`_
+	This method accepts a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_ object, min and max value. This validates if the number of arguments being passed is between the min and max range set, throws a error other wise.
+
+- `validateOptionArguments <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java#L83>`_
+	This method accepts a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_ object, option name, min and max value. Similar to *validateArguments* this validates the right amount of arguments for the option specified by the name.
+
+- `getArguments <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java#L120>`_
+	This method accepts a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_ object, a `Scope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Scope.java>`_ object, and a <classType> (return type). This method returns all the argument values passed in the the directive as a list of the the type sepcified.
+
+- `getArgument <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java#L116>`_
+	This method accepts a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_ object, a `Scope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Scope.java>`_ object, a <classType> (return type), and an index. Similar to *getArguemnts* this method gets the argument value of the passed argument based on index provided and returned in the type specified.
+
+- `getOptionArgument <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java#L126>`_
+	This method accepts a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_ object, a `Scope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Scope.java>`_ object, option name, a <classType> (return type), and an index. Similar to *getArgument* this method gets the arguments for the option specified by the name and based on the index provided and returned in the type specified.
+
+- `evaluateBody <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java#L131>`_
+	This method accepts a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_ object and a `Scope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Scope.java>`_ object.
+
 Example
 +++++++
 
