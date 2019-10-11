@@ -1,7 +1,13 @@
 Adding a Directive
 ==================
 
-Directives are how Gyro injects features/modifications to the language itself like (``@plugin`` or ``@wait``). A directive hooks on to Gyro's AST and is able to set data directly into the language scope. Gyro provides a number of out of the box directives
+Directives allow the Gyro language to be extended. They allow access to manipulate the current
+and pending Gyro configuration, execute code, or add settings to be used later.
+
+Directives are processed as they are encountered during parsing. This allows directives to add,
+remove, or modify resources prior to the diff engine running.
+
+The following directives are provided out-of-the-box:
 
 ==================   ============
 Directive            Function
