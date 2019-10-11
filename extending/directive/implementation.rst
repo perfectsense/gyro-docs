@@ -48,4 +48,4 @@ The following is how this can be used:
 		.
 	end
 
-In your gyro configuration file which reflects production assets if ``@production`` is used on top, then all the display outputs will be appended with **[PRODUCTION]** text to notify that changes will be done to the production environment.
+In your gyro configuration file which reflects production assets if ``@production: true`` is used on top, then all the display outputs will be appended with **[PRODUCTION]** text to notify that changes will be done to the production environment.
