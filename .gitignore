@@ -1,4 +1,5 @@
 provider-docs
 _build
+_build_txt
 providers/
 !providers/index.rst
