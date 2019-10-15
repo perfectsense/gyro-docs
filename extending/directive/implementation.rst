@@ -9,12 +9,15 @@ to how resources are namespaced by provider, by adding ``package-info.java`` to 
 directive. Annotate the ``package`` declaration in ``package-info.java`` with the ``@Namespace(<name>)`` annotation. With
 a namespace defined your directive will be available as ``@<namespace>::<type>``.
 
-Your directive's ``process`` method will be called whenever Gyro encounters a reference with the name of your directive
-in it. Your directive will be passed in a `Scope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Scope.java>`_ object, this gives you access to Gyro's internal scope (map of
-values), and a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_ object, this gives you direct access to Gyro's AST for you to manipulate it as you please.
+The ``process`` method is called when Gyro encounters your directive in a Gyro configuration file.
+It will be passed in a `Scope
+<https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Scope.java>`_
+object that gives you access to Gyro's internal scope (map of values), and a `DirectiveNode
+<https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_
+object that gives you access to the directive node in Gyro's AST.
 
-The ``DirectiveProcessor<s extend scope>`` acceps a ``scope`` as a genric. This allows differrent behavior based on differnt scopes passed and restrictons on where a directive can work.
-Following are some of the out of the box scope flavors and corresponding restrictions:
+Subclasses of ``DirectiveProcessor`` must supply a scope class. The scope class that is chosen has the effect
+of limiting where the directive can be used. The following are the ``Scope`` classes and their limitions:
 
 .. list-table::
     :widths: 10 90
@@ -32,15 +35,10 @@ Following are some of the out of the box scope flavors and corresponding restric
     * - `FileScope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/FileScope.java>`_
       - Directive can be used will all ``.gyro`` files except ``.gyro/init.gyro`` and cannot be used inside a ``Resource`` definition.
 
-You are free to extend `Scope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Scope.java>`_ and create your own sub type to use in a custom directive, whose behavior and restrictions would be based on how you implement your version of the scope.
+Handling Arguments
+++++++++++++++++++
 
-Optionaly if you need arguments that are more complex in nature or want them to be reusable by other extensions (i.e persist beyond just when this directive is called) you could define your own `settings <../../guides/language/directives.html#settings>`_.
-
-Arguments
-+++++++++
-
-`DirectiveProcessor <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java>`_ provides a number of helper methods to process arguments and options. We discuss some of them here.
-
+`DirectiveProcessor
 - `validateArguments <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java#L71>`_
 	This method accepts a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_ object, min and max value. This validates if the number of arguments being passed is between the min and max range set, throws a error other wise.
 
