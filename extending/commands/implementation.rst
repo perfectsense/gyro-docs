@@ -1,14 +1,27 @@
 Implementing a Command
 ----------------------
 
-To create your own command, you have a couple of choices. If you are creating a command targeting configs then subclass `gyro.core.command.AbstractConfigCommand <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/command/AbstractConfigCommand.java>`_. This gives you access to the current existing configuration (state) as well the pending configuration (your current configuration). If on the other hand you want to load the configurations in a differnt way and also control file scoping, subclass the more generic `gyro.core.command.AbstractCommand <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/command/AbstractCommand.java>`_. For both the case implement the method **doExecute**.
+To create your own command subclass `AbstractConfigCommand
+<https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/command/AbstractConfigCommand.java>`_
+and implement the ``doExecute(RootScope current, RootScope pending, State state)`` method.
 
-We use the `Airline <https://github.com/airlift/airline>`_ framefork for defining command and options. The ``@command`` annotation lets you specify the **name** of the command and a **description** enabling you to see a what the command does when help is called. ``@Option`` and ``@Argument`` annotations are used to customize the commands to add options and arguments to them. Annotate the class with the ``@command(name=string, description=string)`` annotation to give this command a name and a description.  The ``@command`` annotation lets you specify the **name** of the command and a **description** enabling you to see a what the command does when help is called. The name provided by this annotation is the name that will be exposed to the Gyro language, (i.e. ``gyro <command-name>``). 
+The ``doExecute`` method is passed the current and pending `RootScope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/RootScope.java>`_
+objects. ``RootScope`` is Gyro's internal representation of your configuration. The current state of
+your configuration (i.e what exists in your cloud provider) is passed in as ``current`` and your
+configuration as defined by your local Gyro configuration files is passed in as ``pending``. The
+`State <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/State.java>`_ object is used
+to save the state of your configuration (i.e. saves current configuration to ``.gyro/state/**``).
+
+Gyro uses the `Airline <https://github.com/airlift/airline>`_ framework for defining commands and
+options. Use the ``@command`` annotation to provide your commands name and description. Your command
+will be available as ``gyro <name>``.
 
 Example
 +++++++
 
-The following example shows the implementation of a simple command ``search`` which searches for a resource in your configuration files and if found shows its location details (File, line and column). 
+The following example shows the implementation of a simple command ``search`` which searches for a
+resource in your configuration files and if found shows its location details (File, line and
+column).
 
 .. code-block:: java
 

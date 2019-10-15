@@ -19,4 +19,3 @@ You can also use 'gyro help <command>' to learn more on how to use a specific co
     :maxdepth: 1
 
     implementation
-    use
