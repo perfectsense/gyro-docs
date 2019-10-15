@@ -18,4 +18,7 @@ For example:
 
 	@wait: $(aws::load-balancer production).instance-health.InService >= 5 -check-every 60 -at-most 600
 
-This directive allows gyro to wait depending on the condition provided by the first argument (**$(aws::load-balancer production).instance-health.InService >= 5**) the second argument (**-check-every 60**) specifies the check interval and the third argument (**-at-most 600**) specifies the upper bound for the waiting time.
+This directive allows Gyro to wait depending on the condition provided by the first argument
+``$(aws::load-balancer production).instance-health.InService >= 5)``. The option
+``-check-every 60`` specifies the check interval. The third option ``-at-most 600``
+specifies the maximum time to wait.
