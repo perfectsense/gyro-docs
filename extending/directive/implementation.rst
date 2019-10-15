@@ -15,13 +15,21 @@ values), and a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/
 The ``DirectiveProcessor<s extend scope>`` acceps a ``scope`` as a genric. This allows differrent behavior based on differnt scopes passed and restrictons on where a directive can work.
 Following are some of the out of the box scope flavors and corresponding restrictions:
 
-=============================================================================================================================  ============
-Scope 		   																													Usage
-=============================================================================================================================  ============
-`DiffableScope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/DiffableScope.java>`_		Directive can ony be used inside a ``Resource`` definition.
-`RootScope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/RootScope.java>`_				Directive can only be used inside ``.gyro/init.gyro``.
-`FileScope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/FileScope.java>`_				Directive can be used will all ``.gyro`` files except ``.gyro/init.gyro`` and cannot be used inside a ``Resource`` definition.
-=============================================================================================================================  ============ 
+.. list-table::
+    :widths: 10 90
+    :header-rows: 1
+
+    * - Scope
+      - Usage
+
+    * - `DiffableScope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/DiffableScope.java>`_
+      - Directive can ony be used inside a ``Resource`` definition.
+
+    * - `RootScope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/RootScope.java>`_
+      - Directive can only be used inside ``.gyro/init.gyro``.
+
+    * - `FileScope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/FileScope.java>`_
+      - Directive can be used will all ``.gyro`` files except ``.gyro/init.gyro`` and cannot be used inside a ``Resource`` definition.
 
 You are free to extend `Scope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Scope.java>`_ and create your own sub type to use in a custom directive, whose behavior and restrictions would be based on how you implement your version of the scope.
 
