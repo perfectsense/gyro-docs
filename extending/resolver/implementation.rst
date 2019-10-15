@@ -28,15 +28,15 @@ that concatenates two or more stings.
 
 .. code-block:: java
 
-	@Type("string-concat")
-	public class StringConcatResolver extends ReferenceResolver {
+    @Type("string-concat")
+    public class StringConcatResolver extends ReferenceResolver {
 
-	    @Override
-	    public Object resolve(Scope scope, List<Object> arguments) throws Exception {
-	    	if (arguments.size() < 2) {
-	    		throw GyroException("The 'String-concat' resolver needs atleast two arguments");
-	    	}
+        @Override
+        public Object resolve(Scope scope, List<Object> arguments) throws Exception {
+            if (arguments.size() < 2) {
+                throw GyroException("The 'String-concat' resolver needs atleast two arguments");
+            }
 
-	    	return String.join(" ", arguments);
-    }
+            return String.join(" ", arguments);
+        }
     }
