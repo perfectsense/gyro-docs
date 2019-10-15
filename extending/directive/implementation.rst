@@ -1,12 +1,13 @@
 Implementing a Directive
 ========================
 
-To create your own directive subclass `gyro.core.directive.DirectiveProcessor <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java>`_ and implement the method **process**.
+To create your own directive subclass `DirectiveProcessor <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java>`_ and implement the method **process**.
 
-Annotate this class with the ``@Type(string)`` annotation to give this directive a name. The name provided by this
-annotation is the name that will be exposed to the Gyro language, (i.e. ``@<typename>:``). Note that if the Java
-package that contains your directive provides a ``package-info.java`` file annotated with ``@Namespace``, your directive
-will be available as ``@<namespace>::<type>:``.
+Name your directive by annotating your class with the ``@Type(string)``. The name provided by this
+annotation will expose your directive to the Gyro language as ``@<typename>``. Directives can be namespaced, similar
+to how resources are namespaced by provider, by adding ``package-info.java`` to the package with your
+directive. Annotate the ``package`` declaration in ``package-info.java`` with the ``@Namespace(<name>)`` annotation. With
+a namespace defined your directive will be available as ``@<namespace>::<type>``.
 
 Your directive's ``process`` method will be called whenever Gyro encounters a reference with the name of your directive
 in it. Your directive will be passed in a `Scope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Scope.java>`_ object, this gives you access to Gyro's internal scope (map of

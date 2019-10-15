@@ -5,10 +5,10 @@ To create your own a resolver subclass `ReferenceResolver
 <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/reference/ReferenceResolver.java>`_
 and implement the method **resolve**.
 
-Name your resolver using by annotating this class with the ``@Type(string)``. The name provided by
-this annotation be exposed to the Gyro language ``$(<name>)``. Resolvers can be namespaced, similar
-to how resources are namespaced by provider, by adding a ``package-info.java`` to the package with your
-resolver. Annotate the ``package`` definition in ``package-info.java`` with the ``@Namespace(<name>)`` annotation. With
+Name your resolver using by annotating your class with the ``@Type(string)``. The name provided by
+this annotation will expose your resolver to the Gyro language as ``$(<name>)``. Resolvers can be namespaced, similar
+to how resources are namespaced by provider, by adding ``package-info.java`` to the package with your
+resolver. Annotate the ``package`` declaration in ``package-info.java`` with the ``@Namespace(<name>)`` annotation. With
 a namespace defined your resolver will be available as ``$(<namespace>::<type>)``.
 
 Your resolver's ``resolve`` method will be called whenever Gyro encounters a reference with the name
