@@ -35,62 +35,83 @@ of limiting where the directive can be used. The following are the ``Scope`` cla
     * - `FileScope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/FileScope.java>`_
       - Directive can be used will all ``.gyro`` files except ``.gyro/init.gyro`` and cannot be used inside a ``Resource`` definition.
 
-Handling Arguments
-++++++++++++++++++
+Arguments and Attributes
+++++++++++++++++++++++++
 
-`DirectiveProcessor
-- `validateArguments <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java#L71>`_
-	This method accepts a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_ object, min and max value. This validates if the number of arguments being passed is between the min and max range set, throws a error other wise.
+Directives can have both arguments and attributes depending on how it's used in configuration. For example, if a
+directive only takes arguments it will have the following syntax:
 
-- `validateOptionArguments <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java#L83>`_
-	This method accepts a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_ object, option name, min and max value. Similar to *validateArguments* this validates the right amount of arguments for the option specified by the name.
+.. code-block:: gyro
 
-- `getArguments <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java#L120>`_
-	This method accepts a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_ object, a `Scope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Scope.java>`_ object, and a <classType> (return type). This method returns all the argument values passed in the the directive as a list of the the type sepcified.
+    @print: "hello world"
 
-- `getArgument <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java#L116>`_
-	This method accepts a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_ object, a `Scope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Scope.java>`_ object, a <classType> (return type), and an index. Similar to *getArguemnts* this method gets the argument value of the passed argument based on index provided and returned in the type specified.
+If a directive takes arguments and attributes it will have the following syntax:
 
-- `getOptionArgument <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java#L126>`_
-	This method accepts a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_ object, a `Scope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Scope.java>`_ object, option name, a <classType> (return type), and an index. Similar to *getArgument* this method gets the arguments for the option specified by the name and based on the index provided and returned in the type specified.
+.. code-block:: gyro
 
-- `evaluateBody <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java#L131>`_
-	This method accepts a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_ object and a `Scope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Scope.java>`_ object.
+    @file-backend 'aws::s3', 'builds'
+        bucket: 'builds-bucket'
+    @end
 
-Example
-+++++++
+Processing Arguments
+++++++++++++++++++++
+
+The following methods are used to process directive arguments:
+
+.. rst-class:: method
+.. list-table::
+    :widths: 40 60
+    :header-rows: 1
+
+    * - Method
+      - Description
+
+    * - `List<Node> validateArguments(DirectiveNode node, int minimum, int maximum) <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java#L71>`_
+      - This method accepts a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_
+        , min and max value. This validates if the number of arguments being passed is between
+        the min and max range set, throws a error otherwise.
+
+    * - `List<Node> validateOptionArguments(DirectiveNode node, String name, int minimum, int maximum) <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java#L83>`_
+      - This method accepts a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_
+        , the name of the option, and the minimum and maximum number of arguments. Similar to ``validateArguments`` this validates the
+        correct number of arguments for the option specified by the name.
+
+    * - `List<T> getArguments(Scope scope, DirectiveNode node, Class<T> valueClass) <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java#L120>`_
+      - This method accepts a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_
+        , a `Scope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Scope.java>`_
+        , and a class that specifies the expected type for all arguments. This method returns all the argument values passed in
+        the the directive as a list.
+
+    * - `T getArgument(Scope scope, DirectiveNode node, Class<T> valueClass, int index) <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java#L116>`_
+      - This method accepts a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_
+        , a `Scope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Scope.java>`_
+        , a class that specifies the expected type for the value at position specified by index. Similar to ``getArguments``
+        but this method gets the argument at the position specified by index.
+
+    * - `T getOptionArgument(Scope scope, DirectiveNode node, String name, Class<T> valueClass, int index) <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java#L126>`_
+      - This method accepts a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_
+        , a `Scope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Scope.java>`_
+        , the name of the option, a class that specifies the expected type for the value at position specified by index.
+        Similar to ``getArgument`` but this method gets the option's argument for position specified by index.
+
+Processing Attributes
++++++++++++++++++++++
+
+To process directive attributes use the following method to get a ``Scope`` object for the directive. This ``Scope``
+can then be used to read attributes for the directive, as follows:
 
 .. code-block:: java
-	
-	@Type("production")
-	public class ProductionProtectionDirectiveProcessor extends DirectiveProcessor<FileScope> {
 
-	    @Override
-	    public void process(FileScope fileScope, DirectiveNode directiveNode) throws Exception {
-	        GyroUI ui = GyroCore.popUi();
-	        if (!(ui instanceof ProductionGyroUi)) {
-	            ui = new ProductionGyroUi(ui);
-	        }
+    Scope bodyScope = evaluateBody(scope, node);
+    String bucket = (String) bodyScope.get("bucket");
 
-	        GyroCore.pushUi(ui);
-	    }
-	}
+.. rst-class:: method
+.. list-table::
+    :widths: 40 60
+    :header-rows: 1
 
-	public class ProductionGyroUi implements GyroUI {
+    * - Method
+      - Description
 
-		.. code for appending **[PRODUCTION]** to all outputs
-	}
-
-The following is how this can be used:
-
-.. code-block:: java
-	
-	@production: true
-
-	aws::instance frontend
-		name: webserver
-		.
-		.
-	end
-
-In your gyro configuration file which reflects production assets if ``@production: true`` is used on top, then all the display outputs will be appended with **[PRODUCTION]** text to notify that changes will be done to the production environment.
+    * - `Scope evaluateBody(Scope scope, DirectiveNode node) <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/directive/DirectiveProcessor.java#L131>`_
+      - This method accepts a `DirectiveNode <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/lang/ast/block/DirectiveNode.java>`_ object and a `Scope <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Scope.java>`_ object.

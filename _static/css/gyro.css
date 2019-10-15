@@ -132,3 +132,8 @@ h1, h2 {
     float: right;
     margin-top: 10px;
 }
+
+table.method a {
+    font-family: Consolas;
+    font-size: 85%;
+}
