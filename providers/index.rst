@@ -2,6 +2,7 @@ AWS
 ===
 
 .. toctree::
+    :maxdepth: 3
 
     aws/index
 
@@ -9,14 +10,16 @@ Azure
 =========
 
 .. toctree::
+    :maxdepth: 3
 
     azure/index
 
 
-Openstack
-=========
+Pingdom
+=======
 
 .. toctree::
+    :maxdepth: 3
 
-    openstack/index
+    pingdom/index
 
