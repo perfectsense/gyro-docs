@@ -70,6 +70,10 @@ html_css_files = [
     'css/gyro.css',
 ]
 
+html_js_files = [
+    'js/gyro.js',
+]
+
 rst_prolog = """
 .. include:: /substitutions.tsr
 """
