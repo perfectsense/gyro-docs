@@ -1,7 +1,7 @@
 Variables
 +++++++++
 
-Variables in Gyro defined using the ``key: value`` syntax.
+Variables in Gyro are defined using the ``key: value`` syntax.
 
 Scoping
 -------
@@ -47,7 +47,7 @@ Scalar Types
 
 Gyro has the following scalar types: **string**, **number**, and **boolean**.
 
-String literals are defined as is zero or more characters enclosed within single quotes (``'my value'``).
+String literals are defined as zero or more characters enclosed within single quotes (``'my value'``).
 
 String expressions are defined as zero or more characters enclosed within double quotes. String expressions differ from string
 literals in that reference expressions will be interpolated prior to using the value (``"my value with $(key)"``).
