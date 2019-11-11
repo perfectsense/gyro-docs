@@ -11,7 +11,7 @@ Before you can start managing cloud resources with Gyro you need to initialize a
 initialize your Gyro we'll use the ``gyro init`` command. This command takes a list of plugins to
 load and creates a the ``.gyro`` directory and the ``.gyro/init.gyro`` configuration file.
 
-Since this tutorial will walk you through creating and managing a resource in AWS, we'll i
+Since this tutorial will walk you through creating and managing a resource in AWS, we'll 
 initialize our project with the AWS provider plugin:
 
 .. code:: shell
