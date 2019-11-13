@@ -62,7 +62,7 @@ References
 Variables are referenced using the ``$name`` or ``$(name)`` syntax. Use ``$(name)`` to surround a variable name
 when used inside a string.
 
-Keys must be a valid identifer, or string literal. Identifiers can be made up of letters, digits, ``_``, or ``-``. Spaces
+Keys must be a valid identifier, or string literal. Identifiers can be made up of letters, digits, ``_``, or ``-``. Spaces
 can be included in keys by quoting the key using single quotes (``'``).
 
 Compound Types

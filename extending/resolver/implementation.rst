@@ -34,7 +34,7 @@ that concatenates two or more stings.
         @Override
         public Object resolve(Scope scope, List<Object> arguments) throws Exception {
             if (arguments.size() < 2) {
-                throw GyroException("The 'String-concat' resolver needs atleast two arguments");
+                throw GyroException("The 'String-concat' resolver needs at least two arguments");
             }
 
             return String.join(" ", arguments);

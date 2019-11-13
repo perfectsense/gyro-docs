@@ -83,7 +83,7 @@ Create a file named ``instance.gyro`` with the following resource configuration 
         instance-type: "t3.nano"
     end
 
-This configuration demostrates how to query for a resource, and how to create a new resource.
+This configuration demonstrates how to query for a resource, and how to create a new resource.
 
 Using the ``$(external-query ...)`` resolver we can search for resources that are not managed by Gyro. In this case
 we're looking up the ``ami-id`` for an Ubuntu Linux machine image. Each resource has a different set of parameters
