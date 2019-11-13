@@ -17,7 +17,7 @@ object that gives you access to Gyro's internal scope (map of values), and a `Di
 object that gives you access to the directive node in Gyro's AST.
 
 Subclasses of ``DirectiveProcessor`` must supply a scope class. The scope class that is chosen has the effect
-of limiting where the directive can be used. The following are the ``Scope`` classes and their limitions:
+of limiting where the directive can be used. The following are the ``Scope`` classes and their limitations:
 
 .. list-table::
     :widths: 10 90
