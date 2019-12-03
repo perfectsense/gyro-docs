@@ -14,6 +14,14 @@ Azure
 
     azure/index
 
+Google
+======
+
+.. toctree::
+    :maxdepth: 4
+
+    google/index
+
 
 Pingdom
 =======

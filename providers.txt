@@ -1,3 +1,4 @@
 https://github.com/perfectsense/gyro-aws-provider
 https://github.com/perfectsense/gyro-azure-provider.git
+https://github.com/perfectsense/gyro-google-provider.git
 https://github.com/perfectsense/gyro-pingdom-provider.git
