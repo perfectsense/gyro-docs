@@ -11,7 +11,7 @@ Before you can start managing cloud resources with Gyro you need to initialize a
 initialize your Gyro we'll use the ``gyro init`` command. This command takes a list of plugins to
 load and creates a the ``.gyro`` directory and the ``.gyro/init.gyro`` configuration file.
 
-Since this tutorial will walk you through creating and managing a resource in AWS, we'll i
+Since this tutorial will walk you through creating and managing a resource in AWS, we'll 
 initialize our project with the AWS provider plugin:
 
 .. code:: shell
@@ -83,7 +83,7 @@ Create a file named ``instance.gyro`` with the following resource configuration 
         instance-type: "t3.nano"
     end
 
-This configuration demostrates how to query for a resource, and how to create a new resource.
+This configuration demonstrates how to query for a resource, and how to create a new resource.
 
 Using the ``$(external-query ...)`` resolver we can search for resources that are not managed by Gyro. In this case
 we're looking up the ``ami-id`` for an Ubuntu Linux machine image. Each resource has a different set of parameters

@@ -78,7 +78,7 @@ the user to pick which stage to transition to. This can be used to implement a r
 to a previous stage and re-running it.
 
 Transitions take a single argument, the name of the transition. This is the name the user will type to select
-the transition. Each transition can have to attributes, ``to`` and ``description``:
+the transition. Each transition can have two attributes, ``to`` and ``description``:
 
 to
     The stage to transition to.
