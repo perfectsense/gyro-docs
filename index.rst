@@ -1,5 +1,18 @@
 .. title:: Gyro
 
+.. cssclass:: gyro-hello
+.. figure:: images/gyro-hello.png
+    :width: 400px
+    :align: right
+
+    Gyro makes infrastructure-as-code possible
+
+    `Download <guides/getting-started/installing.html#installing-gyro>`_
+
+    `Github <https://github.com/perfectsense/gyro>`_
+
+    `Learn More... <https://getgyro.io>`_
+
 Gyro
 ====
 
