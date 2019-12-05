@@ -137,3 +137,28 @@ table.method a {
     font-family: Consolas;
     font-size: 85%;
 }
+
+div.gyro-hello p.caption {
+    text-align: center;
+    padding-top: 20px;
+}
+
+div.gyro-hello div.legend {
+    text-align: center;
+    display: block;
+}
+
+div.gyro-hello div.legend p {
+    display: inline-block;
+}
+
+div.gyro-hello div.legend p a.reference {
+    font-style: normal;
+    padding: 14px;
+    background: #26A69A;
+    margin-top: -10px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+}
