@@ -11,7 +11,7 @@
 
     `Github <https://github.com/perfectsense/gyro>`_
 
-    `Learn More... <https://getgyro.io>`_
+    `Learn More <https://getgyro.io/introducing-gyro>`_
 
 Gyro
 ====
