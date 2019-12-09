@@ -11,5 +11,4 @@ Provider plugins are written in Java and distributed using the Maven repository 
 
     credentials
     implementation
-    code-organization
     documentation
