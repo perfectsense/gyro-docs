@@ -5,16 +5,18 @@ Every cloud provider is made up of one or more resources. Each resource implemen
 of a resource in the cloud: create, read, update, and delete.
 
 A resource is any entity in a cloud provider that has state. For example, ``aws::load-balancer`` or
-``aws::instance`` are resources with state where-as a service like AWS Rekognition has no persistent state so
+``aws::instance`` are resources with state whereas a service like AWS Rekognition has no persistent state so
 it would not need to be implemented as a resource in Gyro.
 
-With the exception of ``refresh()`` all CRUD methods provide a ``GyroUI`` and ``State`` objects.
+.. note::
 
-The ``GyroUI`` objects can be used to output additional information to the user's console.
+    With the exception of ``refresh()`` the methods documented below provide a ``GyroUI`` and ``State`` objects.
 
-The ``State`` object can be used to periodically save state between operations within one of the CRUD methods. For
-example, if creation of an object requires multiple API calls then state should be saved (i.e. ``state.save()``) between
-each API call to ensure state has a view consistent with the cloud provider's state.
+    The ``GyroUI`` object can be used to output additional information to the user's console.
+
+    The ``State`` object can be used to periodically save state between operations within one of the CRUD methods. For
+    example, if creation of an object requires multiple API calls then state should be saved (i.e. ``state.save()``) between
+    each API call to ensure state has a view consistent with the cloud provider's state.
 
 Implementing refresh
 ====================
@@ -78,15 +80,14 @@ Implementing create
 The ``create(GyroUI ui, State state)`` method is called to create a resource. Gyro will call this method for every resource
 it determines needs to be created.
 
-Implementations should create the resource and update any output properties after creation. At a minimum the id
-that uniquely identifies the resource in the cloud provider should be set.
+Implementations should create the resource in the cloud provider and update output properties after creation. At a
+minimum the id that uniquely identifies the resource in the cloud provider should be set.
 
 .. note::
 
-    Call ``state.save()`` in the create method after each API call that creates/updates the resource. This is necessary
-    when the cloud provider requires an API call to create the resource, then subsequent API calls to update
-    specific properties. If there is only one API call to create a resource then calling ``state.save()`` is not
-    necessary as Gyro will call it one more after returning from the create method.
+    After ``create(...)`` returns Gyro will call ``state.save()`` to persist information the newly
+    created resource. When creating a resource requires multiple API calls then ``save.state()`` should
+    be called after each API call.
 
 The following example implementation creates an EBS volume in AWS:
 
