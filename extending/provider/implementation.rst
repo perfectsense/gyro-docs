@@ -1,85 +1,46 @@
 Implementation
 --------------
 
-Annotations
-+++++++++++
+Every cloud provider is made up of one or more resources. Each resource implementation will manage the lifecycle
+of a resource in the cloud: create, read, update, and delete.
 
-**@Type(string)**
-    The class should be annotated with the ``@Type(string)`` annotation. The name provided by this annotation is
-    used by the Gyro language to lookup the resource implementation. For example, ``@Type("instance")`` in the AWS
-    provider will make ``aws::instance`` available to the Gyro language.
+A resource is any entity in a cloud provider that has state. For example, ``aws::load-balancer`` or
+``aws::instance`` are resources with state whereas a service like AWS Rekognition has no persistent state so
+it would not need to be implemented as a resource in Gyro.
 
-    The Java package(s) that make up a provider should be annotated with one or more of the following:
+.. note::
 
-**@Namespace(string)**
-    This is name the primary namespace of the provider that will be exposed to the Gyro language. For example, for
-    the resource ``aws::instance`` this annotation defines the ``aws`` portion of the resource name. The namespace
-    should be short, all-lower case, unique, and concisely describe the provider.
+    With the exception of ``refresh()`` the methods documented below provide a ``GyroUI`` and ``State`` objects.
 
-    This is a ``package`` annotation intended to be used in a ``package-info.java`` file at the root of the provider
-    projects main package.
+    The ``GyroUI`` object can be used to output additional information to the user's console.
 
-**@DocNamespace(string)**
-    Same as above but used for auto-generated documentation.
+    The ``State`` object can be used to periodically save state between operations within one of the CRUD methods. For
+    example, if creation of an object requires multiple API calls then state should be saved (i.e. ``state.save()``) between
+    each API call to ensure state has a view consistent with the cloud provider's state.
 
-**@DocGroup(string)**
-    As explained above each provider should be logically separated into packages based on the provider's API and
-    service groupings. Each of these service group packages should define this annotation.
+Implementing refresh
+====================
 
-    This is a ``package`` annotation intended to be used in a ``package-info.java`` file.
+The ``refresh()`` method is called to refresh the state of a resource. Gyro will call this method on every
+resource loaded from state. Any properties saved in state will set on the resource prior to calling this method.
 
-Fields should be annotated with one of the following annotations, if applicable:
+Implementations should reload the resource properties using cloud provider APIs. This ensures that Gyro can detect
+changes to a resource that were made outside of Gyro, such as the providers web console.
 
-**@Id**
-    This annotation marks the field that is the unique identifier for the resource.
+If a resource cannot be found this method should return **false**, otherwise return **true** to indicate the
+resource was refreshed.
 
-**@Output**
-    This annotation marks fields that are read-only and that will be updated after the initial creation of a resource. This
-    annotation's primary purpose is for auto-generated documentation.
+.. note::
 
-**@Updatable**
-    This annotation marks fields which can be updated independently using the provider's API.
+    Lists and sets in a resource should be cleared (i.e. ``myset.clear()``) prior to updating them to ensure
+    the any values that may have been removed is reflected in the updated resource.
 
-Methods
-+++++++
+    .. code-block:: java
 
-Each resource must extend the abstract ``Resource`` class and implement the interface ``Copyable`` class. The below given method must be implemented by each of the Resource Type class.
+        getVolumes().clear();
+        getVolumes().add(volume);
 
-.. code-block:: java
-
-    Resource.java
-
-    public abstract class Resource extends Diffable {
-        public abstract boolean refresh();
-        public abstract void create(GyroUI ui, State state);
-        public abstract void update(GyroUI ui, State state, Resource current, Set<String> changedFieldNames);
-        public abstract void delete(GyroUI ui, State state);
-    }
-
- -------------------------------------------------------------------------------------------------------------------------------------------
-
-    Copyable.java
-
-    public interface Copyable<M> {
-
-        void copyFrom(M model);
-
-    }
-
-
-The ``GyroUI`` parameter in create, update and delete method is responsible for displaying the output on the console UI and the ``State`` parameter is responsible to generate and update state files for the resources.
-
-**refresh()**
-
-The ``refresh()`` method is called by Gyro to refresh the state of a resource. Implementations should query the
-provider API and return the response resource data.
-
-If the object no longer exists in the cloud provider this method should return ``false``, otherwise it passes the call to the ``copyFrom`` method which sets the resource data and returns ``true`` to
-indicate the data has been updated.
-
-The copyFrom implementation update the current object instance with the cloud instance data.
-
-The following example implementation of ``refresh()`` updates an EBS volume in AWS.
+The following is an example implementation of ``refresh()`` for an EBS volume in AWS:
 
 .. code-block:: java
 
@@ -93,13 +54,6 @@ The following example implementation of ``refresh()`` updates an EBS volume in A
              return false;
          }
 
-         copyFrom(volume);
-
-         return true;
-     }
-
-     @Override
-     public void copyFrom(Volume volume) {
          setId(volume.volumeId());
          setAvailabilityZone(volume.availabilityZone());
          setCreateTime(Date.from(volume.createTime()));
@@ -111,34 +65,37 @@ The following example implementation of ``refresh()`` updates an EBS volume in A
          setState(volume.stateAsString());
          setVolumeType(volume.volumeTypeAsString());
 
-         Ec2Client client = createClient(Ec2Client.class);
-
          DescribeVolumeAttributeResponse responseAutoEnableIo = client.describeVolumeAttribute(
-             r -> r.volumeId(getId())
-                 .attribute(VolumeAttributeName.AUTO_ENABLE_IO)
+             r -> r.volumeId(getId()).attribute(VolumeAttributeName.AUTO_ENABLE_IO)
          );
 
          setAutoEnableIo(responseAutoEnableIo.autoEnableIO().value());
+
+         return true;
      }
 
-**create(GyroUI ui, State state)**
+Implementing create
+===================
 
-The ``create(..)`` method is called by Gyro when it determines that it should create a resource. Implementations should
-create the resource and update any unique ID fields on the current object instance that will be necessary to query for
-the resource ``refresh()`` method.
+The ``create(GyroUI ui, State state)`` method is called to create a resource. Gyro will call this method for every resource
+it determines needs to be created.
 
-Gyro will call ``create(..)`` if the resource does not exist in state or if a non-updatable field has been modified. In
-the later case Gyro will first call ``delete(..)``.
+Implementations should create the resource in the cloud provider and update output properties after creation. At a
+minimum the id that uniquely identifies the resource in the cloud provider should be set.
 
-The following example implementation of ``create(GyroUI ui, State state)`` creates an EBS volume in AWS:
+.. note::
+
+    After ``create(...)`` returns Gyro will call ``state.save()`` to persist information the newly
+    created resource. When creating a resource requires multiple API calls then ``save.state()`` should
+    be called after each API call.
+
+The following example implementation creates an EBS volume in AWS:
 
 .. code-block:: java
 
     @Override
     protected void create(GyroUI ui, State state) {
         Ec2Client client = createClient(Ec2Client.class);
-
-        validate(true);
 
         CreateVolumeResponse response = client.createVolume(
             r -> r.availabilityZone(getAvailabilityZone())
@@ -155,17 +112,19 @@ The following example implementation of ``create(GyroUI ui, State state)`` creat
         setState(response.stateAsString());
     }
 
-**update(GyroUI ui, State state, AwsResource config, Set<String> changedProperties)**
+Implementing update
+===================
 
-The ``update(..)`` method is called by Gyro when it determines that a resource attribute can be updated. This method
-will only be called if the fields that changed are marked with the ``@Updatable`` annotation. In cases where
-both updatable and non-updatable fields are changed Gyro will not call this method, instead it will call ``delete()``
-followed by ``create()``.
+The ``update(GyroUI ui, State state, Resource config, Set<String> changedProperties)`` method is called by Gyro when
+it determines that one or more resource properties should be updated. This method will only be called if the properties
+that changed are marked with the ``@Updatable`` annotation. In cases where both updatable and non-updatable properties are
+changed this method will not be called, instead if a workflow exists for this the resource type it will be executed,
+otherwise all changes will be skipped.
 
 The ``changedProperties`` set contains the names of fields that changed. This allows implementations to minimum the
 of API calls necessary to effect an update.
 
-The following example implementation of ``update(..)`` updates an EBS volume in AWS:
+The following example implementation updates an EBS volume in AWS:
 
 .. code-block:: java
 
@@ -174,7 +133,6 @@ The following example implementation of ``update(..)`` updates an EBS volume in 
         Ec2Client client = createClient(Ec2Client.class);
 
         if (changedProperties.contains("iops") || changedProperties.contains("size") || changedProperties.contains("volume-type")) {
-
             client.modifyVolume(
                 r -> r.volumeId(getId())
                     .iops(getVolumeType().equals("io1") ? getIops() : null)
@@ -191,7 +149,8 @@ The following example implementation of ``update(..)`` updates an EBS volume in 
         }
     }
 
-**delete(GyroUI ui, State state)**
+Implementing delete
+===================
 
-The ``delete(GyroUI ui, State state)`` method is called by Gyro when it determines that a resource should be deleted from the provider. The
-resource implementation should delete the resource from the provider.
+The ``delete(GyroUI ui, State state)`` method is called by Gyro when it determines that a resource should be deleted
+from the cloud provider. The resource implementation should delete the resource from the cloud provider.

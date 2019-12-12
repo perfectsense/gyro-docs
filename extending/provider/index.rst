@@ -10,6 +10,7 @@ Provider plugins are written in Java and distributed using the Maven repository 
     :maxdepth: 1
 
     credentials
+    types
+    modeling
     implementation
-    code-organization
     documentation

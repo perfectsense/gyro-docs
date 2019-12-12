@@ -1,5 +1,5 @@
-Code Organization
------------------
+Organization
+============
 
 Provider implementations are free to organize code however they see fit, however, the following are
 best practices that we've found to work well when organizing provider implementations.
@@ -7,11 +7,10 @@ best practices that we've found to work well when organizing provider implementa
 Each provider should be placed in a unique Java package named for the provider. For example, the AWS provider
 should be placed in the ``gyro.provider.aws`` package.
 
-Additional packages should be used to logically separate provider services. For example, AWS CloudFront service
+Additional packages should be used to logically separate provider services. For example, the AWS CloudFront service
 should be placed in the ``gyro.provider.aws.cloudfront`` package, while AWS Autoscaling service should be placed
-in the ``gyro.provider.aws.autoscaling`` package.
-
-
+in the ``gyro.provider.aws.autoscaling`` package. Cloud providers usually separate their APIs by service so following
+their grouping is a good starting point.
 
 Example:
 
