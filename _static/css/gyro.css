@@ -25,15 +25,15 @@ code, .rst-content code {
     /*padding: 0px 5px 3px 5px;*/
     display: inline-block;
 }
-.rst-content dl.subresource > dt:first-child {
+
+.rst-content dl.resource > dt:first-child, .rst-content dl.subresource > dt:first-child {
     border-bottom: 2px solid #78a1bb;
     border-radius: 0;
     margin-bottom: 10px;
     padding-bottom: 5px;
 }
 
-.rst-content dl.subresource > dt:first-child:after {
-    content: "subresource";
+.rst-content dl.resource > dt:first-child:after, .rst-content dl.subresource > dt:first-child:after {
     margin-left: 10px;
     margin-top: 5px;
     font-weight: bold;
@@ -44,7 +44,15 @@ code, .rst-content code {
     border-radius: 2px;
 }
 
-span.subresource {
+.rst-content dl.resource > dt:first-child:after {
+    content: "resource";
+}
+
+.rst-content dl.subresource > dt:first-child:after {
+    content: "subresource";
+}
+
+span.resource, span.subresource {
     margin-left: 10px;
     font-weight: bold;
     font-size: 75%;
