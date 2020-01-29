@@ -26,45 +26,37 @@ code, .rst-content code {
     display: inline-block;
 }
 
-.rst-content dl.resource > dt:first-child, .rst-content dl.subresource > dt:first-child {
+.rst-content dl.label-container > dt:first-child {
     border-bottom: 2px solid #78a1bb;
     border-radius: 0;
     margin-bottom: 10px;
     padding-bottom: 5px;
 }
 
-.rst-content dl.resource > dt:first-child:after, .rst-content dl.subresource > dt:first-child:after {
-    margin-left: 10px;
-    margin-top: 5px;
+span.collection-type, span.resource-type {
+    margin-left: 2px;
     font-weight: bold;
     font-size: 75%;
-    background: #78a1bb;
-    color: #fff;
-    padding: 1px 3px 2px 4px;
-    border-radius: 2px;
-}
-
-.rst-content dl.resource > dt:first-child:after {
-    content: "resource";
-}
-
-.rst-content dl.subresource > dt:first-child:after {
-    content: "subresource";
-}
-
-span.resource, span.subresource {
-    margin-left: 10px;
-    font-weight: bold;
-    font-size: 75%;
-    background: #78a1bb;
     color: #fff;
     padding: 1px 3px 2px 4px;
     border-radius: 2px;
     display: inline-block;
 }
 
+span.collection-type {
+	background: #6ab0de;
+}
+
+span.resource-type {
+    background: #78a1bb;
+}
+
 span.attribute {
     display: block;
+}
+
+dt > span.attribute {
+    display: inline-block;
 }
 
 td p {
