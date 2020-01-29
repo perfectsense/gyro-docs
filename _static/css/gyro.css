@@ -33,6 +33,10 @@ code, .rst-content code {
     padding-bottom: 5px;
 }
 
+p.resource-link > a {
+	color:  #2980b9;
+}
+
 span.collection-type, span.resource-type {
     margin-left: 2px;
     font-weight: bold;
