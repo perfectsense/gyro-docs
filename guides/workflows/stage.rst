@@ -9,7 +9,7 @@ Directives
 
 @workflow::create
     This directive defines a new cloud resource to be created when this stage executes. You can use the
-    `@extends <../language/built-ins.html#extends>`_ directive to quickly duplicate a resource.
+    :ref:`extends` directive to quickly duplicate a resource.
 
     This directive takes the cloud resource type and name as arguments. Attributes to this directive are
     set on the new resource.
