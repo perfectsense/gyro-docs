@@ -1,5 +1,5 @@
 Directives
-----------
+++++++++++
 
 Directives are Gyro language extensions that add functionality to the base language. Directives begin with
 the ``@`` symbol, for example, the line ``@plugin: 'gyro:gyro-aws-provider:0.15-SNAPSHOT'`` in the "Test Your Installation"
