@@ -25,7 +25,7 @@ source_suffix = ['.rst']
 master_doc = 'index'
 
 project = u'Gyro'
-copyright = u'2019, Perfect Sense, Inc.'
+copyright = u'2020, Perfect Sense, Inc.'
 author = u'Perfect Sense'
 release = u'0.99.1'
 language = None
