@@ -75,6 +75,7 @@ shared across an organization allow teams outside the operations team to build a
 
    guides/virtual-resources/index
    guides/workflows/index
+   guides/state/index
 
 .. toctree::
    :maxdepth: 1
