@@ -10,7 +10,7 @@ single line directives take at least one argument and must be on a single line, 
 
 .. code::
 
-    @plugin: 'gyro:gyro-aws-provider:0.15-SNAPSHOT'
+    @plugin: 'gyro:gyro-aws-provider:0.99.1'
 
 Advanced directives, such as ``@credentials`` take both an argument and one or more attributes. All advanced
 directives end with ``@end``, for example:
@@ -31,5 +31,3 @@ Settings are how a directive accepts attributes along with arguments. Attributes
 Settings allow these values to be stored in the scope and used at a later time by this or other directives.
 
 To implement your own settings class, subclass `gyro.core.scope.setting <https://github.com/perfectsense/gyro/blob/master/core/src/main/java/gyro/core/scope/Settings.java>`_ with needed variables/attributes. You get an instance of this class by calling ``scope.getSettings(<Custom-Setting-Class>.class)`` and there by get access to all the variables/attributes that your ``<Custom-Setting-Class>`` defines.
-
-For example:

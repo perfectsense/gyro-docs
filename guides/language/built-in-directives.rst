@@ -17,7 +17,7 @@ Every Gyro project will have at least one ``@plugin`` directive call to load a c
 
 .. code::
 
-    @plugin: 'gyro:gyro-aws-provider:0.99.0-SNAPSHOT'
+    @plugin: 'gyro:gyro-aws-provider:0.99.1'
 
 @repository
 -----------
@@ -34,7 +34,7 @@ By default only the Maven central repository is searched for plugins.
 .. code::
 
     @repository: 'https://artifactory.psdops.com/public'
-    @repository: 'https://artifactory.psdops.com/gyro-snapshots'
+    @repository: 'https://artifactory.psdops.com/gyro-releases'
 
 @credentials
 ------------
