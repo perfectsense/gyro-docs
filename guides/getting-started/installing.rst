@@ -9,9 +9,9 @@ Official distributions are:
 ================== =================
 OS                  Archive
 ================== =================
-**macOS**          `gyro-cli-osx-0.99.4.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-osx/0.99.4/gyro-cli-osx-0.99.4.zip>`_
-**Linux**          `gyro-cli-linux-0.99.4.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-linux/0.99.4/gyro-cli-linux-0.99.4.zip>`_
-**Windows**        `gyro-cli-windows-0.99.4.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-windows/0.99.4/gyro-cli-windows-0.99.4.zip>`_
+**macOS**          `gyro-cli-osx-0.99.5.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-osx/0.99.5/gyro-cli-osx-0.99.5.zip>`_
+**Linux**          `gyro-cli-linux-0.99.5.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-linux/0.99.5/gyro-cli-linux-0.99.5.zip>`_
+**Windows**        `gyro-cli-windows-0.99.5.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-windows/0.99.5/gyro-cli-windows-0.99.5.zip>`_
 ================== =================
 
 The easiest installation method is to download the distribution and extract it.
@@ -25,9 +25,9 @@ For example:
 
 .. code:: shell
 
-    $ unzip -d /usr/local/bin gyro-cli-linux-0.99.4.zip
+    $ unzip -d /usr/local/bin gyro-cli-linux-0.99.5.zip
 
-     Archive:  gyro-cli-linux-0.99.4.zip
+     Archive:  gyro-cli-linux-0.99.5.zip
       creating: /usr/local/bin/gyro-rt/
       creating: /usr/local/bin/gyro-rt/bin/
       inflating: /usr/local/bin/gyro-rt/bin/java
@@ -61,7 +61,7 @@ become the root of your Gyro project.
 
     $ mkdir myproject
     $ cd myproject
-    $ gyro init gyro:gyro-aws-provider:0.99.2
+    $ gyro init gyro:gyro-aws-provider:0.99.3
     + Creating a new .gyro directory
     + Writing to the .gyro/init.gyro file
 
@@ -72,7 +72,7 @@ are required to spin up a resource.
 
     @repository: 'https://artifactory.psdops.com/public'
     @repository: 'https://artifactory.psdops.com/gyro-releases'
-    @plugin: 'gyro:gyro-aws-provider:0.99.2'
+    @plugin: 'gyro:gyro-aws-provider:0.99.3'
 
 We will be creating a VPC resource to test our installation.
 
@@ -91,7 +91,7 @@ file here ``.gyro/state/test.gyro``.
 .. code:: shell
 
     $ /usr/local/bin/gyro up --test test.gyro
-    ↓ Loading plugin: gyro:gyro-aws-provider:0.99.2
+    ↓ Loading plugin: gyro:gyro-aws-provider:0.99.3
 
      Looking for changes...
 
