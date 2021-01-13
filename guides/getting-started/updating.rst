@@ -34,7 +34,7 @@ Gyro will show that its going to modify the existing instance to add the tags:
 .. code::
 
     $ gyro up --verbose
-    ↓ Loading plugin: gyro:gyro-aws-provider:0.99.3
+    ↓ Loading plugin: gyro:gyro-aws-provider:1.0.0
     ⟳ Refreshed resources: 1
 
     Looking for changes...
