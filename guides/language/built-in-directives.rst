@@ -147,6 +147,89 @@ This equivalent to defining ``webserver-2`` as::
     end
 
 
+@depends-on
+-----------
+
+This directive sets up an external dependency between two resource definition. It is intended to be used when two resources are not dependent on on each other via resource reference but one resource needs another resource to exist in order to work.
+
+**Example** ::
+
+    aws::application-load-balancer alb-example
+        name: "alb-example"
+        ip-address-type: "ipv4"
+        scheme: "internal"
+        
+        security-groups: [
+            $(aws::security-group security-group),
+            $(aws::security-group other-security-group)
+        ]
+        
+        subnets: [
+            $(aws::subnet subnet-us-east-2a),
+            $(aws::subnet subnet-us-east-2b)
+        ]
+        
+        tags: {
+            Name: "alb-example"
+        }
+
+        @depends-on: $(aws::internet-gateway)
+    end
+
+    aws::internet-gateway internet-gateway
+        vpc: $(aws::vpc vpc)
+    end
+
+The ``aws::application-load-balancer`` needs an ``aws::internet-gateway`` to be present for it to be created without any direct dependency. Having the ``@depneds-on`` will make sure the ``internet-gateway`` is created first before the ``application-load-balancer``.
+
+@timeout
+--------
+
+This directive allows you to override a resource's default Wait logic if present for create, update and delete actions. It could be used when default wait times are not enough given more network latency, especially if creating resources in a distant region.
+
+**Attributes**
+
+at-most-duaration
+    The max wait time before 
+
+check-every-duration
+    The interval after which you check for the wait condition to be satisfied. 
+
+prompt
+    If set to true, after the max wait time has elapsed, the user would be prompted to start the wait again or abort.
+
+action
+    Action determines which wait is overriden, CREATE for creation wait, UPDATE for update wait and DELETE for deletion waits.
+
+**Example** ::
+
+    aws::application-load-balancer alb-example
+        name: "alb-example"
+        ip-address-type: "ipv4"
+        scheme: "internal"
+        
+        security-groups: [
+            $(aws::security-group security-group),
+            $(aws::security-group other-security-group)
+        ]
+        
+        subnets: [
+            $(aws::subnet subnet-us-east-2a),
+            $(aws::subnet subnet-us-east-2b)
+        ]
+        
+        tags: {
+            Name: "alb-example"
+        }
+
+        @timeout
+            action: CREATE
+            at-most-duration: PT15M
+        @end
+    end
+
+The wait time for ``aws::application-load-balancer alb-example`` is overriden for when its being created where the `at-most-duration` of the wait is set to 15 min.
+
 @virtual
 --------
 
