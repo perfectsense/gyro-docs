@@ -16,7 +16,7 @@ initialize our project with the AWS provider plugin:
 
 .. code:: shell
 
-    $ gyro init gyro:gyro-aws-provider:1.0.1
+    $ gyro init gyro:gyro-aws-provider:1.3.0
     + Creating a new .gyro directory
     + Writing to the .gyro/init.gyro file
 
@@ -103,8 +103,8 @@ Now that we have our configuration we can tell Gyro to apply it by using the ``g
 
 .. code::
 
-    $ gyro up
-    ↓ Loading plugin: gyro:gyro-aws-provider:1.0.1
+    $ gyro up --no-verbose
+    ↓ Loading plugin: gyro:gyro-aws-provider:1.3.0
 
     Looking for changes...
 
@@ -116,14 +116,14 @@ Now that we have our configuration we can tell Gyro to apply it by using the ``g
 
 The ``gyro up`` command will compare local state (of which there is none right none) with the configuration
 we just added and present you with the actions necessary to effect the changes in the configuration. By default
-Gyro only shows the action (create, update, replace, delete) that will be taken for any resources that have
-changed. For a more detailed view use the ``--verbose`` option of ``gyro up``. This will show you exactly which
-fields have changed.
+Gyro will show the detailed view showing exactly which fields have changed. For a concise view use the ``--no-verbose``
+option to only show the action (create, update, replace, delete) that will be taken for any resources that have
+changed.
 
 .. code::
 
-    $ gyro up --verbose
-    ↓ Loading plugin: gyro:gyro-aws-provider:1.0.1
+    $ gyro up
+    ↓ Loading plugin: gyro:gyro-aws-provider:1.3.0
 
     Looking for changes...
 
@@ -140,8 +140,8 @@ again it shouldn't find any changes.
 
 .. code::
 
-    $ gyro up --verbose
-    ↓ Loading plugin: gyro:gyro-aws-provider:1.0.1
+    $ gyro up
+    ↓ Loading plugin: gyro:gyro-aws-provider:1.3.0
     ⟳ Refreshed resources: 1
 
     Looking for changes...

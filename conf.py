@@ -27,7 +27,7 @@ master_doc = 'index'
 project = u'Gyro'
 copyright = u'2020, Brightspot'
 author = u'Perfect Sense'
-release = u'1.0.1'
+release = u'1.1.0'
 language = None
 
 exclude_patterns = [
