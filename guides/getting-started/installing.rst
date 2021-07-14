@@ -9,9 +9,9 @@ Official distributions are:
 ================== =================
 OS                  Archive
 ================== =================
-**macOS**          `gyro-cli-osx-1.0.2.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-osx/1.1.0/gyro-cli-osx-1.1.0.zip>`_
-**Linux**          `gyro-cli-linux-1.0.2.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-linux/1.1.0/gyro-cli-linux-1.1.0.zip>`_
-**Windows**        `gyro-cli-windows-1.0.2.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-windows/1.1.0/gyro-cli-windows-1.1.0.zip>`_
+**macOS**          `gyro-cli-osx-1.1.0.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-osx/1.1.0/gyro-cli-osx-1.1.0.zip>`_
+**Linux**          `gyro-cli-linux-1.1.0.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-linux/1.1.0/gyro-cli-linux-1.1.0.zip>`_
+**Windows**        `gyro-cli-windows-1.1.0.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-windows/1.1.0/gyro-cli-windows-1.1.0.zip>`_
 ================== =================
 
 The easiest installation method is to download the distribution and extract it.
