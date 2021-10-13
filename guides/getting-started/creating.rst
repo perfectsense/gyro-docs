@@ -16,7 +16,7 @@ initialize our project with the AWS provider plugin:
 
 .. code:: shell
 
-    $ gyro init gyro:gyro-aws-provider:1.4.0
+    $ gyro init gyro:gyro-aws-provider:1.4.3
     + Creating a new .gyro directory
     + Writing to the .gyro/init.gyro file
 
@@ -104,7 +104,7 @@ Now that we have our configuration we can tell Gyro to apply it by using the ``g
 .. code::
 
     $ gyro up --no-verbose
-    ↓ Loading plugin: gyro:gyro-aws-provider:1.4.0
+    ↓ Loading plugin: gyro:gyro-aws-provider:1.4.3
 
     Looking for changes...
 
@@ -123,7 +123,7 @@ changed.
 .. code::
 
     $ gyro up
-    ↓ Loading plugin: gyro:gyro-aws-provider:1.4.0
+    ↓ Loading plugin: gyro:gyro-aws-provider:1.4.3
 
     Looking for changes...
 
@@ -141,7 +141,7 @@ again it shouldn't find any changes.
 .. code::
 
     $ gyro up
-    ↓ Loading plugin: gyro:gyro-aws-provider:1.4.0
+    ↓ Loading plugin: gyro:gyro-aws-provider:1.4.3
     ⟳ Refreshed resources: 1
 
     Looking for changes...
