@@ -39,7 +39,7 @@ the remote backend:
 .. code:: shell
 
     $ gyro up
-    ↓ Loading plugin: gyro:gyro-aws-provider:1.4.0
+    ↓ Loading plugin: gyro:gyro-aws-provider:1.4.2
 
     Looking for changes...
 
@@ -108,7 +108,7 @@ in case writing to remote fails. If the write to remote fails, you will see an e
 .. code:: shell
 
     $ gyro up
-    ↓ Loading plugin: gyro:gyro-aws-provider:1.4.0
+    ↓ Loading plugin: gyro:gyro-aws-provider:1.4.2
 
     Looking for changes...
 
@@ -131,7 +131,7 @@ try to push them up again:
 .. code:: shell
 
     $ gyro up
-    ↓ Loading plugin: gyro:gyro-aws-provider:1.4.0
+    ↓ Loading plugin: gyro:gyro-aws-provider:1.4.2
 
     Temporary state files were detected, indicating a past failure pushing to a remote backend.
     Would you like to attempt to push the files to your remote backend? (y/N) y
