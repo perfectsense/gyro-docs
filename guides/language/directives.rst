@@ -10,7 +10,7 @@ single line directives take at least one argument and must be on a single line, 
 
 .. code::
 
-    @plugin: 'gyro:gyro-aws-provider:1.4.7'
+    @plugin: 'gyro:gyro-aws-provider:1.4.10'
 
 Advanced directives, such as ``@credentials`` take both an argument and one or more attributes. All advanced
 directives end with ``@end``, for example:
