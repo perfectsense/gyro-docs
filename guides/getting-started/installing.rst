@@ -9,9 +9,9 @@ Official distributions are:
 ================== =================
 OS                  Archive
 ================== =================
-**macOS**          `gyro-cli-macos-1.1.3rc3.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-macos/1.1.3rc3/gyro-cli-macos-1.1.3rc3.zip>`_
-**Linux**          `gyro-cli-linux-1.1.3rc3.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-linux/1.1.3rc3/gyro-cli-linux-1.1.3rc3.zip>`_
-**Windows**        `gyro-cli-windows-1.1.3rc3.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-windows/1.1.3rc3/gyro-cli-windows-1.1.3rc3.zip>`_
+**macOS**          `gyro-cli-macos-1.2.0.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-macos/1.2.0/gyro-cli-macos-1.2.0.zip>`_
+**Linux**          `gyro-cli-linux-1.2.0.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-linux/1.2.0/gyro-cli-linux-1.2.0.zip>`_
+**Windows**        `gyro-cli-windows-1.2.0.zip <https://artifactory.psdops.com/gyro-releases/gyro/gyro-cli-windows/1.2.0/gyro-cli-windows-1.2.0.zip>`_
 ================== =================
 
 The easiest installation method is to download the distribution and extract it.
@@ -25,9 +25,9 @@ For example:
 
 .. code:: shell
 
-    $ unzip -d /usr/local/bin gyro-cli-linux-1.1.2.zip
+    $ unzip -d /usr/local/bin gyro-cli-linux-1.2.0.zip
 
-     Archive:  gyro-cli-linux-1.1.0.zip
+     Archive:  gyro-cli-linux-1.2.0.zip
       creating: /usr/local/bin/gyro-rt/
       creating: /usr/local/bin/gyro-rt/bin/
       inflating: /usr/local/bin/gyro-rt/bin/java
