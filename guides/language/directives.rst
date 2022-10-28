@@ -2,7 +2,7 @@ Directives
 ++++++++++
 
 Directives are Gyro language extensions that add functionality to the base language. Directives begin with
-the ``@`` symbol, for example, the line ``@plugin: 'gyro:gyro-aws-provider:1.4.0'`` in the "Test Your Installation"
+the ``@`` symbol, for example, the line ``@plugin: 'gyro:gyro-aws-provider:1.5.0'`` in the "Test Your Installation"
 section of this document is actually a directive that loads an external plugin.
 
 Simple directives, such as ``@plugin``, are defined in the format ``@<directive>: <arguments>``. All
@@ -10,7 +10,7 @@ single line directives take at least one argument and must be on a single line, 
 
 .. code::
 
-    @plugin: 'gyro:gyro-aws-provider:1.4.11'
+    @plugin: 'gyro:gyro-aws-provider:1.5.0'
 
 Advanced directives, such as ``@credentials`` take both an argument and one or more attributes. All advanced
 directives end with ``@end``, for example:
