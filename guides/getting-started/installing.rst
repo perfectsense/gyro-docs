@@ -61,7 +61,7 @@ become the root of your Gyro project.
 
     $ mkdir myproject
     $ cd myproject
-    $ gyro init gyro:gyro-aws-provider:1.5.0
+    $ gyro init gyro:gyro-aws-provider:1.5.1
     + Creating a new .gyro directory
     + Writing to the .gyro/init.gyro file
 
@@ -72,7 +72,7 @@ are required to spin up a resource.
 
     @repository: 'https://artifactory.psdops.com/public'
     @repository: 'https://artifactory.psdops.com/gyro-releases'
-    @plugin: 'gyro:gyro-aws-provider:1.5.0'
+    @plugin: 'gyro:gyro-aws-provider:1.5.1'
 
 We will be creating a VPC resource to test our installation.
 
@@ -91,7 +91,7 @@ file here ``.gyro/state/test.gyro``.
 .. code:: shell
 
     $ /usr/local/bin/gyro up --test test.gyro
-    ↓ Loading plugin: gyro:gyro-aws-provider:1.5.0
+    ↓ Loading plugin: gyro:gyro-aws-provider:1.5.1
 
      Looking for changes...
 
