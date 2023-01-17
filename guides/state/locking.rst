@@ -32,7 +32,7 @@ an error message detailing information about the lock similar to below:
 .. code:: shell
 
     $ gyro up
-    ↓ Loading plugin: gyro:gyro-aws-provider:1.5.1
+    ↓ Loading plugin: gyro:gyro-aws-provider:1.5.2
 
     Error: State is currently locked!
     Current lock ID: 'adf4feb3-3333-447e-89d9-819da078618d'.
