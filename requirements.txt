@@ -1,6 +1,6 @@
 --extra-index-url https://artifactory.psdops.com/api/pypi/pypi/simple
 MarkupSafe==0.23
-Pygments==2.7.4
+Pygments==2.15.0
 Sphinx==1.8.4
 sphinxprettysearchresults==0.1.6
 rst2pdf==0.94.1
