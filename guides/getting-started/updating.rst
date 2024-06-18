@@ -34,17 +34,17 @@ Gyro will show that its going to modify the existing instance to add the tags:
 .. code::
 
     $ gyro up
-    ↓ Loading plugin: gyro:gyro-aws-provider:1.5.2
-    ⟳ Refreshed resources: 1
+    ↓ Loading plugin: gyro:gyro-aws-provider:1.6.0
+    -> Refreshed resources: 1
 
     Looking for changes...
 
-    ⟳ Update aws::instance webserver (i-00b86f46e69e6d5bb)
+    -> Update aws::instance webserver (i-00b86f46e69e6d5bb)
     · tags:  +{ Name: 'webserver', Project: 'gyro' }
 
     Are you sure you want to change resources? (y/N) y
 
-    ⟳ Updating aws::instance webserver (i-00b86f46e69e6d5bb) OK
+    -> Updating aws::instance webserver (i-00b86f46e69e6d5bb) OK
 
 In the next section we'll show how what happens if we remove the instance configuration.
 
