@@ -21,8 +21,8 @@ In order to load a resource using ``external-query`` the resource must implement
 
 .. code::
 
-    $(external-query aws::ami {name = 'amzn-ami-hvm-2018.03.0.20181129-x86_64-gp2'})
+    $(external-query aws::ami {name: 'amzn-ami-hvm-2018.03.0.20181129-x86_64-gp2'})
 
 .. code::
 
-    $(external-query aws::ami {name = 'amzn-ami-hvm-2018.03.0.20181129-x86_64-gp2'} -credentials 'sandbox')
+    $(external-query aws::ami {name: 'amzn-ami-hvm-2018.03.0.20181129-x86_64-gp2'} -credentials 'sandbox')
